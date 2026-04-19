@@ -24,7 +24,7 @@ DynamicznaTablica::~DynamicznaTablica() {
 }
 
 // Realokacja: podwajanie pojemnosci tablicy (O(n) przy zmianie rozmiaru)
-void DynamicznaTablica::resize() {
+void DynamicznaTablica::zmienRozmiar() {
     capacity = (capacity == 0) ? 1 : capacity * 2;
     int* newData = new int[capacity];
     for (int i = 0; i < size; i++) {
@@ -36,13 +36,13 @@ void DynamicznaTablica::resize() {
 
 // Dodawanie na koniec: O(1) amortyzowane
 void DynamicznaTablica::dodajNaKoniec(int e) {
-    if (size == capacity) resize();
+    if (size == capacity) zmienRozmiar();
     data[size++] = e;
 }
 
 // Dodawanie na poczatek: O(n) - wymaga przesuniecia wszystkich elementow
 void DynamicznaTablica::dodajNaPoczatek(int e) {
-    if (size == capacity) resize();
+    if (size == capacity) zmienRozmiar();
     for (int i = size; i > 0; i--) {
         data[i] = data[i - 1];
     }
@@ -55,7 +55,7 @@ void DynamicznaTablica::dodajNaPozycji(int idx, int e) {
     if (idx <= 0) { dodajNaPoczatek(e); return; }
     if (idx >= size) { dodajNaKoniec(e); return; }
 
-    if (size == capacity) resize();
+    if (size == capacity) zmienRozmiar();
     for (int i = size; i > idx; i--) {
         data[i] = data[i - 1];
     }

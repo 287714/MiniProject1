@@ -13,11 +13,11 @@ using namespace std;
  */
 class DynamicznaTablica {
 private:
-    int* data;          // Wskaznik na tablice elementow (zmienione z dane)
-    int size;           // Aktualna liczba elementow (zmienione z rozmiar)
-    int capacity;       // Calkowita pojemnosc tablicy (zmienione z pojemnosc)
+    int* data;          // Wskaznik na tablice elementow 
+    int size;           // Aktualna liczba elementow 
+    int capacity;       // Calkowita pojemnosc tablicy 
 
-    void resize();      // Metoda pomocnicza do realokacji pamieci (zmienione z zmienRozmiar)
+    void zmienRozmiar();
 
 public:
     // Konstruktory i destruktor
